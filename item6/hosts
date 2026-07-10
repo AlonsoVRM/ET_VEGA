@@ -1,0 +1,5 @@
+[routers]
+192.168.56.102 ansible_user=cisco ansible_password=cisco123! ansible_network_os=ios ansible_connection=network_cli
+
+[local]
+localhost ansible_connection=local

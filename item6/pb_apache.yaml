@@ -1,0 +1,28 @@
+---
+- name: Instalar y configurar Apache en puerto 9999
+  hosts: local
+  gather_facts: false
+
+  tasks:
+    - name: 1. Instalar el paquete Apache2
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+
+    - name: 2. Cambiar puerto de escucha a 9999 (ports.conf)
+      lineinfile:
+        path: /etc/apache2/ports.conf
+        regexp: '^Listen '
+        line: 'Listen 9999'
+
+    - name: 3. Cambiar puerto en el VirtualHost (000-default.conf)
+      lineinfile:
+        path: /etc/apache2/sites-available/000-default.conf
+        regexp: '^<VirtualHost \*:.*>'
+        line: '<VirtualHost *:9999>'
+
+    - name: 4. Reiniciar servicio Apache2 para aplicar cambios
+      service:
+        name: apache2
+        state: restarted

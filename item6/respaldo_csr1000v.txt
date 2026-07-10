@@ -1,0 +1,191 @@
+Building configuration...
+
+Current configuration : 4102 bytes
+!
+! Last configuration change at 15:12:58 UTC Fri Jul 10 2026 by NETCONF
+!
+version 16.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console virtual
+!
+hostname vega_verdejo
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip domain name etw.netacad.com
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-1446162010
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1446162010
+ revocation-check none
+ rsakeypair TP-self-signed-1446162010
+!
+!
+crypto pki certificate chain TP-self-signed-1446162010
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 31343436 31363230 3130301E 170D3236 30373130 31343136 
+  31315A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 34343631 
+  36323031 30308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100C13A 5AAFC0DC 98AEAA17 A929E22B 160F30E9 ED4B29ED AF1D24E5 
+  34C24717 E9D3BD19 D7A1F7FA 699746E9 C2A9A06B B6952336 E1D5D9A0 B4121014 
+  8DE86FCA 1426BA53 E8CE971B D5992D3A 92F2279F 06114C18 4484889B 733DC24F 
+  4F365FB6 7B048FC7 0832E2E6 D2B462B1 192C3ADC 6F376E1E 69722821 963AEF8A 
+  4EA50E20 33CEEDB9 11F06B53 769A2353 51218A38 D64E1548 121697C3 A417D5EB 
+  1E1C17E4 3483E277 E458A896 C5330991 EBC5F72A 28F184F1 6AD0716D 7D0CA084 
+  47BCE128 E1A012FA EA5FAF24 6452C354 EE421C80 349A8C4F B5C8CBF6 8E41B360 
+  4278C2EA 3C636C98 C5E826B5 4FD42FBA 56E4FE2E FA61B7C2 8C9DBB4B 02FF14D6 
+  53E2075E 3FE90203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 14FACED4 2E0F8C37 A079C3D2 04284FB0 FA815D25 
+  F0301D06 03551D0E 04160414 FACED42E 0F8C37A0 79C3D204 284FB0FA 815D25F0 
+  300D0609 2A864886 F70D0101 05050003 82010100 91EFA4EF F6E33193 3716CC76 
+  F631DBA7 99F30D9F 63A620D5 4FE3D230 6D4D8547 91B1B109 5180F6CE E7B86151 
+  D28F0073 7767E710 F3AA4567 2E05C1BB 1141F591 CD1F3780 BAA58518 1C6C6AF8 
+  5DE05AD0 8856E7B7 B15A7E18 F9C1167B FDBC9603 D57B6CC3 FB1BD232 66EFF430 
+  E4D179C5 68772958 8F0383D8 5262A358 8F89698E 9FF90EE2 68A28673 12BC7E06 
+  511383A5 9C9D8C06 907A73AA DAD22DF5 E8F2A64C A72839C5 1D827323 8AE935CE 
+  DF04A0F6 BC891A4F 9310BC8E 683ED02E 7BA8CD7C 0AF2AE89 D5A79DCD EF624DF5 
+  006BD19C 25538A76 657AF0B7 670D7965 762A2548 C7CA6434 446870C2 C7DCC0AF 
+  0252E2AE DA9762AE B948C1D8 6928E497 4ADDC40A
+  	quit
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9VZTS14X4SJ
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+netconf-yang
+!
+restconf
+!
+username cisco privilege 15 password 0 cisco123!
+!
+redundancy
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback22
+ ip address 22.22.22.22 255.255.255.255
+ shutdown
+!
+interface GigabitEthernet1
+ description VBox
+ ip address dhcp
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+ip forward-protocol nd
+no ip http server
+ip http authentication local
+ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+banner motd ^C
+*                                           *
+**                                         **
+***                                       ***
+***  Cisco Networking Academy             ***
+***   Emerging Technologies Workshop:     ***
+***    Model Driven Programmability       ***
+***                                       ***
+***  This software is provided for        ***
+***   Educational Purposes                ***
+***    Only in Networking Academies       ***
+***                                       ***
+**                                         **
+*                                           *
+^C
+!
+line con 0
+ logging synchronous
+ stopbits 1
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+!
+!
+!
+!
+!
+end
