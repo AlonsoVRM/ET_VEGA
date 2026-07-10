@@ -1,0 +1,4 @@
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1       192.168.56.102  YES DHCP   up                    up      
+Loopback22             22.22.22.22     YES other  administratively down down    
+Loopback33             unassigned      YES unset  up                    up      
